@@ -1,9 +1,20 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 
 namespace QuantizedFluid.Core.VelocityHistograms {
 	public class VelocityGrid {
 		private readonly VelocityDistribution[,] _distributions = new VelocityDistribution[3,3];
 
+		public IEnumerable<VelocityDistribution> Distributions {
+			get {
+				for (var x = 0; x < 3; x++) {
+					for (var y = 0; y < 3; y++) {
+						yield return _distributions[x, y];
+					}
+				}
+			}
+		}
+		
 		public VelocityGrid(Velocity2dProbability probability) {
 			var leftX = GetLeft(probability.X);
 			var rightX = GetRight(probability.X);

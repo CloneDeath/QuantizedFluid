@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Drawing;
 using QuantizedFluid.Core.VelocityHistograms;
 
 namespace QuantizedFluid.Core {
@@ -31,6 +32,19 @@ namespace QuantizedFluid.Core {
 			foreach (var fluidCell in Layer.GetCells()) {
 				var position = fluidCell.Position;
 				var grid = new VelocityGrid(fluidCell.VelocityProbability);
+				foreach (var distribution in grid.Distributions) {
+					var x = position.X + distribution.Velocity.X;
+					var y = position.Y + distribution.Velocity.Y;
+					if (x < 0) x = 0;
+					if (x >= Width) x = Width;
+					if (y < 0) y = 0;
+					if (y >= Height) y = Height;
+					var nextPos = new Point(x, y);
+					next[nextPos].NumberOfParticles = (int)Math.Round(fluidCell.NumberOfParticles * distribution.Probability);
+					next[nextPos].VelocityProbability += distribution.VelocityProbability 
+					                                     * distribution.Probability 
+					                                     * fluidCell.NumberOfParticles;
+				}
 				
 				next[position].NumberOfParticles = fluidCell.NumberOfParticles;
 				next[position].VelocityProbability = fluidCell.VelocityProbability;
