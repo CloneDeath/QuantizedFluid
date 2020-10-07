@@ -28,7 +28,7 @@ namespace QuantizedFluid {
 			for (var x = 0; x < _world.Width; x++) {
 				for (var y = 0; y < _world.Height; y++) {
 					var count = _world[x, y].NumberOfParticles;
-					Draw(x, y, new Pixel(0, 0, count));
+					Draw(x, y, new Pixel(0, 0, count/1000f));
 				}
 			}
 		}
