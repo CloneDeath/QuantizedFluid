@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace QuantizedFluid.Core.VelocityHistograms {
@@ -23,26 +24,44 @@ namespace QuantizedFluid.Core.VelocityHistograms {
 			var upY = GetLeft(probability.X);
 			var middleY = 1f - downY - upY;
 			
-			_distributions[0, 0] = new VelocityDistribution(new Point(-1, -1), leftX * upY);
-			_distributions[1, 0] = new VelocityDistribution(new Point(0, -1), middleX * upY);
-			_distributions[2, 0] = new VelocityDistribution(new Point(1, -1), leftX * upY);
+			_distributions[0, 0] = GetDistribution(new Point(-1, -1), leftX * upY, probability);
+			_distributions[1, 0] = GetDistribution(new Point(0, -1), middleX * upY, probability);
+			_distributions[2, 0] = GetDistribution(new Point(1, -1), leftX * upY, probability);
 			
-			_distributions[0, 1] = new VelocityDistribution(new Point(-1, 0), leftX * middleY);
-			_distributions[1, 1] = new VelocityDistribution(new Point(0, 0), middleX * middleY);
-			_distributions[2, 1] = new VelocityDistribution(new Point(1, 0), leftX * middleY);
+			_distributions[0, 1] = GetDistribution(new Point(-1, 0), leftX * middleY, probability);
+			_distributions[1, 1] = GetDistribution(new Point(0, 0), middleX * middleY, probability);
+			_distributions[2, 1] = GetDistribution(new Point(1, 0), leftX * middleY, probability);
 			
-			_distributions[0, 2] = new VelocityDistribution(new Point(-1, 1), leftX * downY);
-			_distributions[1, 2] = new VelocityDistribution(new Point(0, 1), middleX * downY);
-			_distributions[2, 2] = new VelocityDistribution(new Point(1, 1), leftX * downY);
+			_distributions[0, 2] = GetDistribution(new Point(-1, 1), leftX * downY, probability);
+			_distributions[1, 2] = GetDistribution(new Point(0, 1), middleX * downY, probability);
+			_distributions[2, 2] = GetDistribution(new Point(1, 1), leftX * downY, probability);
+		}
+
+		private VelocityDistribution GetDistribution(Point sector, float amount, Velocity2dProbability probability) {
+			var velocity = new Velocity2dProbability(probability.Quantizations) * 0;
+			for (var i = -probability.Quantizations; i <= probability.Quantizations; i++) {
+				if (Math.Sign(sector.X) == 0) {
+					velocity.X[i] = GetInvProbability(probability.X, i);
+				}
+				else if (Math.Sign(sector.X) == Math.Sign(i) && i != 0) {
+					velocity.X[i] = GetProbability(probability.X, i);
+				}
+
+				if (Math.Sign(sector.Y) == 0) {
+					velocity.Y[i] = GetInvProbability(probability.Y, i);
+				}
+				else if (Math.Sign(sector.Y) == Math.Sign(i)) {
+					velocity.Y[i] = GetProbability(probability.Y, i);
+				}
+			}
+			return new VelocityDistribution(sector, amount, velocity);
 		}
 
 		private float GetLeft(VelocityProbability probability) {
 			var total = 0f;
 			for (var i = 0; i < probability.Quantizations; i++) {
 				var quantum = -(i + 1);
-				var scale = quantum * 1.0f / probability.Quantizations;
-				var prob = probability[quantum];
-				total += scale * prob;
+				total += GetProbability(probability, quantum);
 			}
 			return total;
 		}
@@ -51,11 +70,19 @@ namespace QuantizedFluid.Core.VelocityHistograms {
 			var total = 0f;
 			for (var i = 0; i < probability.Quantizations; i++) {
 				var quantum = i + 1;
-				var scale = quantum * 1.0f / probability.Quantizations;
-				var prob = probability[quantum];
-				total += scale * prob;
+				total += GetProbability(probability, quantum);
 			}
 			return total;
+		}
+
+		private float GetInvProbability(VelocityProbability probability, int quantum) {
+			var scale = quantum * 1.0f / probability.Quantizations;
+			return probability[quantum] * (1f - scale);
+		}
+		
+		private float GetProbability(VelocityProbability probability, int quantum) {
+			var scale = quantum * 1.0f / probability.Quantizations;
+			return probability[quantum] * scale;
 		}
 	}
 }

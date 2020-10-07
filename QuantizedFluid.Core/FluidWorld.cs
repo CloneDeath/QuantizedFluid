@@ -36,9 +36,9 @@ namespace QuantizedFluid.Core {
 					var x = position.X + distribution.Velocity.X;
 					var y = position.Y + distribution.Velocity.Y;
 					if (x < 0) x = 0;
-					if (x >= Width) x = Width;
+					if (x >= Width) x = Width - 1;
 					if (y < 0) y = 0;
-					if (y >= Height) y = Height;
+					if (y >= Height) y = Height - 1;
 					var nextPos = new Point(x, y);
 					next[nextPos].NumberOfParticles = (int)Math.Round(fluidCell.NumberOfParticles * distribution.Probability);
 					next[nextPos].VelocityProbability += distribution.VelocityProbability 

@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace QuantizedFluid.Core.VelocityHistograms {
 	public class VelocityProbability {
@@ -9,6 +10,11 @@ namespace QuantizedFluid.Core.VelocityHistograms {
 			Quantizations = quantizations;
 			_probabilities = new float[quantizations*2 + 1];
 			_probabilities[quantizations] = 1;
+		}
+
+		public VelocityProbability(IEnumerable<float> probabilities) {
+			_probabilities = probabilities.ToArray();
+			Quantizations = _probabilities.Length / 2;
 		}
 
 		protected int QuantumToIndex(int quantum) => quantum + Quantizations;
@@ -29,6 +35,18 @@ namespace QuantizedFluid.Core.VelocityHistograms {
 					_probabilities[i] /= total;
 				}
 			}
+		}
+
+		public static VelocityProbability operator *(VelocityProbability left, float right) {
+			return new VelocityProbability(left._probabilities.Select(p => p*right));
+		}
+
+		public static VelocityProbability operator +(VelocityProbability left, VelocityProbability right) {
+			var values = new List<float>();
+			for (var i = 0; i < left._probabilities.Length; i++) {
+				values.Add(left._probabilities[i] + right._probabilities[i]);
+			}
+			return new VelocityProbability(values);
 		}
 	}
 }

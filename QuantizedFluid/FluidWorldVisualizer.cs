@@ -1,4 +1,5 @@
-﻿using CorePixelEngine;
+﻿using System;
+using CorePixelEngine;
 using QuantizedFluid.Core;
 
 namespace QuantizedFluid {
@@ -17,6 +18,7 @@ namespace QuantizedFluid {
 		}
 
 		public override bool OnUserUpdate(float elapsedTime) {
+			Console.WriteLine("Taking Step");
 			_world.Step();
 			SetPixels();
 			return true;
