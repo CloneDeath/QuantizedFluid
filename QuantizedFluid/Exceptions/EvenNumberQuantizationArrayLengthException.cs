@@ -2,7 +2,7 @@
 
 namespace QuantizedFluid.Exceptions {
 	public class EvenNumberQuantizationArrayLengthException<T> : Exception {
-		public T[] Values { get; }
+		public readonly T[] Values;
 		public int Length => Values.Length;
 		
 		public EvenNumberQuantizationArrayLengthException(T[] values) 

@@ -24,7 +24,8 @@ namespace QuantizedFluid.Tests {
 		[Test]
 		public void IfAnEmptyArrayIsPassedIn_AnExceptionIsThrown() {
 			new Func<Quantization1i>(() => new Quantization1i(new int[0]))
-				.Should().ThrowExactly<EvenNumberQuantizationArrayLengthException<int>>();
+				.Should().ThrowExactly<EvenNumberQuantizationArrayLengthException<int>>()
+				.Which.Length.Should().Be(0);
 		}
 	}
 }
