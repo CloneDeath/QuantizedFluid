@@ -1,5 +1,4 @@
 ﻿using System;
-using QuantizedFluid;
 
 namespace QuantizedFluid.VisualConsole {
 	public class ConsoleVisualizer {

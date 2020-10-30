@@ -16,7 +16,7 @@ namespace QuantizedFluid {
 		}
 
 		public void NormalizeProbabilities() {
-			VelocityProbability.NormalizeProbabilities();
+			VelocityProbability = VelocityProbability.Normalized;
 		}
 	}
 }

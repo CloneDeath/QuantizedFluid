@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using QuantizedFluid.QuantizedMath;
 
 namespace QuantizedFluid.VelocityHistograms {
 	public class VelocityGrid {
@@ -38,8 +39,8 @@ namespace QuantizedFluid.VelocityHistograms {
 		}
 
 		private VelocityDistribution GetDistribution(Point sector, float amount, Velocity2dProbability probability) {
-			var velocity = new Velocity2dProbability(probability.Quantizations) * 0;
-			for (var i = -probability.Quantizations; i <= probability.Quantizations; i++) {
+			var velocity = new Velocity2dProbability(probability.X.Quantizations) * 0;
+			for (var i = -probability.X.Quantizations; i <= probability.X.Quantizations; i++) {
 				if (Math.Sign(sector.X) == 0) {
 					velocity.X[i] = GetInvProbability(probability.X, i);
 				}
@@ -57,7 +58,7 @@ namespace QuantizedFluid.VelocityHistograms {
 			return new VelocityDistribution(sector, amount, velocity);
 		}
 
-		private float GetLeft(VelocityProbability probability) {
+		private float GetLeft(Quantization1f probability) {
 			var total = 0f;
 			for (var i = 0; i < probability.Quantizations; i++) {
 				var quantum = -(i + 1);
@@ -66,7 +67,7 @@ namespace QuantizedFluid.VelocityHistograms {
 			return total;
 		}
 		
-		private float GetRight(VelocityProbability probability) {
+		private float GetRight(Quantization1f probability) {
 			var total = 0f;
 			for (var i = 0; i < probability.Quantizations; i++) {
 				var quantum = i + 1;
@@ -75,12 +76,12 @@ namespace QuantizedFluid.VelocityHistograms {
 			return total;
 		}
 
-		private float GetInvProbability(VelocityProbability probability, int quantum) {
+		private float GetInvProbability(Quantization1f probability, int quantum) {
 			var scale = quantum * 1.0f / probability.Quantizations;
 			return probability[quantum] * (1f - scale);
 		}
 		
-		private float GetProbability(VelocityProbability probability, int quantum) {
+		private float GetProbability(Quantization1f probability, int quantum) {
 			var scale = quantum * 1.0f / probability.Quantizations;
 			return probability[quantum] * scale;
 		}

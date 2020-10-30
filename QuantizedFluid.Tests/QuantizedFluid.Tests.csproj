@@ -47,6 +47,12 @@
       <Compile Update="Quantization1f.Tests.OperatorAdd.cs">
         <DependentUpon>Quantization1f.Tests.cs</DependentUpon>
       </Compile>
+      <Compile Update="Quantization2f.Tests.ConstructorInt.cs">
+        <DependentUpon>Quantization2f.Tests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Quantization2f.Tests.ConstructorIEnumerable.cs">
+        <DependentUpon>Quantization2f.Tests.cs</DependentUpon>
+      </Compile>
     </ItemGroup>
 
 </Project>
