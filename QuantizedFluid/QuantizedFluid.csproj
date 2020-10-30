@@ -10,6 +10,9 @@
       <Compile Update="QuantizedMath\Quantization1i.Operators.cs">
         <DependentUpon>Quantization1i.cs</DependentUpon>
       </Compile>
+      <Compile Update="QuantizedMath\Quantization1f.Operators.cs">
+        <DependentUpon>Quantization1f.cs</DependentUpon>
+      </Compile>
     </ItemGroup>
 
 </Project>

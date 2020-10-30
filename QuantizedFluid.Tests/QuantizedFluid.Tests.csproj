@@ -39,6 +39,12 @@
       <Compile Update="Quantization1i.Tests.OperatorMultiplyByFloat.cs">
         <DependentUpon>Quantization1i.Tests.cs</DependentUpon>
       </Compile>
+      <Compile Update="Quantization1f.Tests.OperatorMultiplyByFloat.cs">
+        <DependentUpon>Quantization1f.Tests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Quantization1f.Tests.OperatorAdd.cs">
+        <DependentUpon>Quantization1f.Tests.cs</DependentUpon>
+      </Compile>
     </ItemGroup>
 
 </Project>
