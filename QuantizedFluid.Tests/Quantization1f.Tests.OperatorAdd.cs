@@ -1,5 +1,7 @@
-﻿using FluentAssertions;
+﻿using System;
+using FluentAssertions;
 using NUnit.Framework;
+using QuantizedFluid.Exceptions;
 using QuantizedFluid.QuantizedMath;
 
 namespace QuantizedFluid.Tests {
@@ -15,6 +17,15 @@ namespace QuantizedFluid.Tests {
 			result[-1].Should().Be(12);
 			result[0].Should().Be(22.1f);
 			result[1].Should().Be(1.98f);
+		}
+
+		[Test]
+		public void IfTwoQuantizationsHaveDifferentLengths_AnExceptionIsThrown() {
+			var q1 = new Quantization1f(10);
+			var q2 = new Quantization1f(11);
+
+			new Func<Quantization1f>(() => q1 + q2)
+				.Should().ThrowExactly<QuantizationsMismatchException<float>>();
 		}
 	}
 }

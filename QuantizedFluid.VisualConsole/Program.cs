@@ -14,6 +14,7 @@ namespace QuantizedFluid.VisualConsole {
 			Console.WriteLine("Running Fluid Simulation");
 			Console.WriteLine("quit - quits the application");
 			Console.WriteLine("everything else/empty input - runs one time step");
+			visual.Render();
 			while (true) {
 				var cmd = Console.ReadLine();
 				if (cmd == "quit") return;
@@ -28,7 +29,7 @@ namespace QuantizedFluid.VisualConsole {
 			for (var x = 0; x < size.Width; x++) {
 				for (var y = 0; y < size.Height; y++) {
 					var point = new Point(x, y);
-					world[point].NumberOfParticles = 10;
+					world[point].NumberOfParticles = 100;
 				}
 			}
 			return world;
