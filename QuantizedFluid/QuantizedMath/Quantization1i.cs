@@ -3,7 +3,7 @@ using System.Linq;
 using QuantizedFluid.Exceptions;
 
 namespace QuantizedFluid.QuantizedMath {
-	public class Quantization1i {
+	public partial class Quantization1i {
 		public int Quantizations { get; }
 		private readonly int[] _values;
 		

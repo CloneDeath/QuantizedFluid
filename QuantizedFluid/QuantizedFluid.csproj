@@ -6,4 +6,10 @@
         <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Compile Update="QuantizedMath\Quantization1i.Operators.cs">
+        <DependentUpon>Quantization1i.cs</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 </Project>
