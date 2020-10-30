@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantizedFluid", "QuantizedFluid\QuantizedFluid.csproj", "{3B5B3DD5-BA65-4574-99F4-23ECB1595047}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantizedFluid.Core", "QuantizedFluid.Core\QuantizedFluid.Core.csproj", "{57B853FF-CBBC-4734-9FF9-37625FAD59C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantizedFluid.VisualConsole", "QuantizedFluid.VisualConsole\QuantizedFluid.VisualConsole.csproj", "{BE11DA2A-FE23-416E-B35B-8B121481382C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -10,13 +10,13 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3B5B3DD5-BA65-4574-99F4-23ECB1595047}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3B5B3DD5-BA65-4574-99F4-23ECB1595047}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3B5B3DD5-BA65-4574-99F4-23ECB1595047}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3B5B3DD5-BA65-4574-99F4-23ECB1595047}.Release|Any CPU.Build.0 = Release|Any CPU
 		{57B853FF-CBBC-4734-9FF9-37625FAD59C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{57B853FF-CBBC-4734-9FF9-37625FAD59C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57B853FF-CBBC-4734-9FF9-37625FAD59C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57B853FF-CBBC-4734-9FF9-37625FAD59C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE11DA2A-FE23-416E-B35B-8B121481382C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE11DA2A-FE23-416E-B35B-8B121481382C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE11DA2A-FE23-416E-B35B-8B121481382C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE11DA2A-FE23-416E-B35B-8B121481382C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
