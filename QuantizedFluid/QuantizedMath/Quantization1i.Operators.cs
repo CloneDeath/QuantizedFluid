@@ -5,6 +5,10 @@ namespace QuantizedFluid.QuantizedMath {
 		public static Quantization1i operator *(Quantization1i left, int right) {
 			return new Quantization1i(left.Values.Select(p => p * right));
 		}
+		
+		public static Quantization1f operator *(Quantization1i left, float right) {
+			return new Quantization1f(left.Values.Select(p => p * right));
+		}
 
 		public static Quantization1i operator +(Quantization1i left, Quantization1i right) {
 			var values = left.Values.Select((value, index) => value + right.Values[index]);
