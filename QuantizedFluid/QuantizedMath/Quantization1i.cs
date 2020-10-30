@@ -6,6 +6,8 @@ namespace QuantizedFluid.QuantizedMath {
 	public partial class Quantization1i {
 		public int Quantizations { get; }
 		private readonly int[] _values;
+
+		public int[] GetValues() => _values.ToArray();
 		
 		public Quantization1i(int quantizations) {
 			Quantizations = quantizations;
