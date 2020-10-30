@@ -17,4 +17,16 @@
       <ProjectReference Include="..\QuantizedFluid\QuantizedFluid.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="Quantization1i.Tests.Total.cs">
+        <DependentUpon>Quantization1i.Tests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Quantization1i.Tests.Quantizations.cs">
+        <DependentUpon>Quantization1i.Tests.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Quantization1i.Tests.IEnumerableConstructor.cs">
+        <DependentUpon>Quantization1i.Tests.cs</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 </Project>

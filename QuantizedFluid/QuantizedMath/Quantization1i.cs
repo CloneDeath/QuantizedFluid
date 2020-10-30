@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using QuantizedFluid.Exceptions;
 
 namespace QuantizedFluid.QuantizedMath {
 	public class Quantization1i {
@@ -13,6 +14,8 @@ namespace QuantizedFluid.QuantizedMath {
 
 		public Quantization1i(IEnumerable<int> values) {
 			_values = values.ToArray();
+			if (_values.Length % 2 != 1) throw new EvenNumberQuantizationArrayLengthException<int>(_values);
+			
 			Quantizations = _values.Length / 2;
 		}
 
