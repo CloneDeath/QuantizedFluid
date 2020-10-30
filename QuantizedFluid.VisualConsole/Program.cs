@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using QuantizedFluid;
 
 namespace QuantizedFluid.VisualConsole {
 	public class Program {
@@ -10,8 +9,11 @@ namespace QuantizedFluid.VisualConsole {
 			var world = MakeWorld(size, quantizations);
 			world[0, size.Height / 2].VelocityProbability.X[quantizations] = 1;
 			world.NormalizeProbabilities();
-
+			
 			var visual = new ConsoleVisualizer(world);
+			Console.WriteLine("Running Fluid Simulation");
+			Console.WriteLine("quit - quits the application");
+			Console.WriteLine("everything else/empty input - runs one time step");
 			while (true) {
 				var cmd = Console.ReadLine();
 				if (cmd == "quit") return;
