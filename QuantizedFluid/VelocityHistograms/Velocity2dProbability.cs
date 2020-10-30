@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace QuantizedFluid.Core.VelocityHistograms {
+namespace QuantizedFluid.VelocityHistograms {
 	public class Velocity2dProbability {
 		public VelocityProbability X { get; }
 		public VelocityProbability Y { get; }

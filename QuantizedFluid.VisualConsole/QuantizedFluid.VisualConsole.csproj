@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\QuantizedFluid.Core\QuantizedFluid.Core.csproj" />
+      <ProjectReference Include="..\QuantizedFluid\QuantizedFluid.csproj" />
     </ItemGroup>
 
 </Project>

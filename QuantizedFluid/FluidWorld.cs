@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Drawing;
-using QuantizedFluid.Core.VelocityHistograms;
+using QuantizedFluid.VelocityHistograms;
 
-namespace QuantizedFluid.Core {
+namespace QuantizedFluid {
 	public class FluidWorld {
 		protected FluidLayer Layer { get; set; }
 		

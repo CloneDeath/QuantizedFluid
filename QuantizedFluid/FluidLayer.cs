@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using QuantizedFluid.Core.Extensions;
+using QuantizedFluid.Extensions;
 
-namespace QuantizedFluid.Core {
+namespace QuantizedFluid {
 	public class FluidLayer {
 		protected FluidCell[,] Cells { get; }
 		protected Size Size { get; }

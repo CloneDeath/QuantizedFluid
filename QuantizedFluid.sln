@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantizedFluid.Core", "QuantizedFluid.Core\QuantizedFluid.Core.csproj", "{57B853FF-CBBC-4734-9FF9-37625FAD59C7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantizedFluid", "QuantizedFluid\QuantizedFluid.csproj", "{57B853FF-CBBC-4734-9FF9-37625FAD59C7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuantizedFluid.VisualConsole", "QuantizedFluid.VisualConsole\QuantizedFluid.VisualConsole.csproj", "{BE11DA2A-FE23-416E-B35B-8B121481382C}"
 EndProject

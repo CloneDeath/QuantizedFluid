@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace QuantizedFluid.Core.VelocityHistograms {
+namespace QuantizedFluid.VelocityHistograms {
 	public class VelocityProbability {
 		private readonly float[] _probabilities;
 		public int Quantizations { get; }

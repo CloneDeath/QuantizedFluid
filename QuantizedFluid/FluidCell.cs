@@ -1,7 +1,7 @@
 ﻿using System.Drawing;
-using QuantizedFluid.Core.VelocityHistograms;
+using QuantizedFluid.VelocityHistograms;
 
-namespace QuantizedFluid.Core {
+namespace QuantizedFluid {
 	public class FluidCell {
 		public Point Position { get; }
 		public int Quantizations { get; }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 
-namespace QuantizedFluid.Core.VelocityHistograms {
+namespace QuantizedFluid.VelocityHistograms {
 	public class VelocityGrid {
 		private readonly VelocityDistribution[,] _distributions = new VelocityDistribution[3,3];
 

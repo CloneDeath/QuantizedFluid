@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace QuantizedFluid.Core.VelocityHistograms {
+namespace QuantizedFluid.VelocityHistograms {
 	public class VelocityDistribution {
 		public Point Velocity { get; }
 		public float Probability { get; }

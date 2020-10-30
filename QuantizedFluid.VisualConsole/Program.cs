@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Drawing;
-using QuantizedFluid.Core;
+using QuantizedFluid;
 
 namespace QuantizedFluid.VisualConsole {
 	public class Program {
