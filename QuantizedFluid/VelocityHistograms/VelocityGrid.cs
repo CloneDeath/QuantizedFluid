@@ -39,7 +39,7 @@ namespace QuantizedFluid.VelocityHistograms {
 		}
 
 		private VelocityDistribution GetDistribution(Point sector, float amount, Velocity2dProbability probability) {
-			var velocity = new Velocity2dProbability(probability.X.Quantizations) * 0;
+			var velocity = new Velocity2dProbability(probability.X.Quantizations);
 			for (var i = -probability.X.Quantizations; i <= probability.X.Quantizations; i++) {
 				if (Math.Sign(sector.X) == 0) {
 					velocity.X[i] = GetInvProbability(probability.X, i);

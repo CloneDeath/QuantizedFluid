@@ -13,6 +13,9 @@
       <Compile Update="QuantizedMath\Quantization1f.Operators.cs">
         <DependentUpon>Quantization1f.cs</DependentUpon>
       </Compile>
+      <Compile Update="QuantizedMath\Quantization2f.Operators.cs">
+        <DependentUpon>Quantization2f.cs</DependentUpon>
+      </Compile>
     </ItemGroup>
 
 </Project>

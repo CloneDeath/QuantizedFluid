@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
 
 namespace QuantizedFluid.QuantizedMath {
-	public class Quantization2f {
+	public partial class Quantization2f {
 		protected Quantization1f XQuantization { get; }
 		protected Quantization1f YQuantization { get; }
 
-		public float Total => XQuantization.Total; 
-
+		public float Total => XQuantization.Total;
+		
+		public float[] GetXValues() => XQuantization.GetValues();
+		public float[] GetYValues() => YQuantization.GetValues();
+		
 		public Quantization2f(int quantizations) {
 			XQuantization = new Quantization1f(quantizations);
 			YQuantization = new Quantization1f(quantizations);
