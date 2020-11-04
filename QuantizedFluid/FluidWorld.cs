@@ -41,9 +41,12 @@ namespace QuantizedFluid {
 					if (y >= Height) y = Height - 1;
 					var nextPos = new Point(x, y);
 					next[nextPos].NumberOfParticles = (int)Math.Round(fluidCell.NumberOfParticles * distribution.Probability);
-					next[nextPos].VelocityProbability += distribution.VelocityProbability 
-					                                     * distribution.Probability 
-					                                     * fluidCell.NumberOfParticles;
+					
+					var nextVelocity = new Velocity2dProbability(next[nextPos].VelocityProbability 
+					                                             + distribution.VelocityProbability 
+					                                             * distribution.Probability 
+					                                             * fluidCell.NumberOfParticles);
+					next[nextPos].VelocityProbability = nextVelocity;
 				}
 				
 				next[position].NumberOfParticles = fluidCell.NumberOfParticles;
