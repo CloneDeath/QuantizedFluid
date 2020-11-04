@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using QuantizedFluid.VelocityHistograms;
 
 namespace QuantizedFluid {
@@ -16,7 +17,19 @@ namespace QuantizedFluid {
 		}
 
 		public void NormalizeProbabilities() {
-			VelocityProbability = new Velocity2dProbability(VelocityProbability.Normalized);
+			var x = VelocityProbability.X.Total != 0
+				? VelocityProbability.X.Normalized.GetValues()
+				: GetEqualProbabilityDistribution();
+			var y = VelocityProbability.Y.Total != 0
+				? VelocityProbability.Y.Normalized.GetValues()
+				: GetEqualProbabilityDistribution();
+			VelocityProbability = new Velocity2dProbability(x, y);
+		}
+
+		private IEnumerable<float> GetEqualProbabilityDistribution() {
+			for (var i = 0; i < Quantizations * 2 + 1; i++) {
+				yield return 1.0f/(Quantizations * 2 + 1);
+			}
 		}
 	}
 }

@@ -22,7 +22,7 @@ namespace QuantizedFluid.VelocityHistograms {
 			var rightX = GetRight(probability.X);
 			var middleX = 1f - leftX - rightX;
 			var downY = GetRight(probability.Y);
-			var upY = GetLeft(probability.X);
+			var upY = GetLeft(probability.Y);
 			var middleY = 1f - downY - upY;
 			
 			_distributions[0, 0] = GetDistribution(new Point(-1, -1), leftX * upY, probability);
