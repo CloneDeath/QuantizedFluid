@@ -82,7 +82,7 @@ namespace QuantizedFluid.VelocityHistograms {
 		}
 		
 		private float GetProbability(Quantization1f probability, int quantum) {
-			var scale = quantum * 1.0f / probability.Quantizations;
+			var scale = Math.Abs(quantum) * 1.0f / probability.Quantizations;
 			return probability[quantum] * scale;
 		}
 	}

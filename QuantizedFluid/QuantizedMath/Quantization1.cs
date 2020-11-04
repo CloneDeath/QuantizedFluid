@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using QuantizedFluid.Exceptions;
 
@@ -26,6 +27,10 @@ namespace QuantizedFluid.QuantizedMath {
 		public TType this[int quantum] {
 			get => Values[QuantumToIndex(quantum)];
 			set => Values[QuantumToIndex(quantum)] = value;
+		}
+		
+		public float GetQuantumProbability(int quantum) {
+			return Math.Abs(quantum) * 1.0f / Quantizations;
 		}
 	}
 }

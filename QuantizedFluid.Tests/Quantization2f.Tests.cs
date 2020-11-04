@@ -1,4 +1,4 @@
-﻿using System.ComponentModel;
+﻿using NUnit.Framework;
 
 namespace QuantizedFluid.Tests {
 	[Category("Quantization2f")]

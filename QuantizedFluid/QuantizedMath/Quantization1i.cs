@@ -7,5 +7,9 @@ namespace QuantizedFluid.QuantizedMath {
 		public Quantization1i(IEnumerable<int> values) : base(values) { }
 
 		public int Total => Values.Sum();
+
+		public Quantization1f GetDistribution() {
+			throw new System.NotImplementedException();
+		}
 	}
 }
